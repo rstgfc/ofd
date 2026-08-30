@@ -7,6 +7,8 @@
 #include <windows.h>
 #include <unknwn.h>
 #include <gdiplus.h>
+#include <string>
+#include <vector>
 
 // Forward declarations
 class COFDViewerPlugin;
@@ -129,13 +131,30 @@ private:
     int m_nPageCount;
     bool m_bLoaded;
     
-    // OFD specific members (to be implemented with OFD library)
-    void* m_pOFDDocument;  // Placeholder for OFD document handle
+    // OFD specific members - using external converter approach
+    int m_pageCountCache;                    // Cached page count
+    std::wstring m_currentOFDPath;           // Current OFD file path
+    
+    // Rendered page cache (stores GDI+ Bitmap pointers)
+    struct PageCacheEntry
+    {
+        int pageIndex;
+        Gdiplus::Bitmap* bitmap;
+        wchar_t tempFilePath[MAX_PATH];
+        DWORD lastAccessTime;
+    };
+    std::vector<PageCacheEntry> m_pageCache;
     
     // Helper methods
     LRESULT OnPaint(HDC hdc);
     LRESULT OnSize(int width, int height);
     static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
+    
+    // Rendering helpers
+    bool EnsurePageRendered(int pageIndex);
+    Gdiplus::Bitmap* GetCachedBitmap(int pageIndex);
+    void ClearPageCache();
+    int DetectPageCount(const std::wstring& ofdPath);
 };
 
 // Factory class for COM
