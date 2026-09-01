@@ -1,0 +1,98 @@
+```gitignore
+# Compiled and build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
+# Dependencies
+venv/
+.venv/
+__pycache__/
+*.egg-info/
+build/
+dist/
+node_modules/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Python specific
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.manifest
+*.spec
+
+# C/C++
+*.i
+*.ii
+*.s
+*.su
+*.gcno
+*.gcda
+*.gcov
+*.stackdump
+*.ilk
+*.pdb
+*.pgc
+*.pgd
+*.meta
+*.pidb
+*.svclog
+
+# Build directories
+cmake-build-*/
+Makefile
+CMakeFiles/
+CMakeCache.txt
+cmake_install.manifest
+*.cmake
+
+# Qt/MOC related
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+
+# Generated files
+*.moc
+*.moc.cpp
+*.qm
+*.prl
+*.pri
+
+# Debug/Release builds
+Debug/
+Release/
+x64/
+x86/
+arm64/
+```.next/
+.next/

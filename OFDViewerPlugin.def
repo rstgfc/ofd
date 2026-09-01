@@ -1,0 +1,10 @@
+// OFDViewerPlugin.def
+// Module definition file for OFD Viewer Plugin DLL
+
+LIBRARY "OFDViewerPlugin"
+EXPORTS
+    DllGetClassObject PRIVATE
+    DllCanUnloadNow PRIVATE
+    DllRegisterServer PRIVATE
+    DllUnregisterServer PRIVATE
+    DllMain PRIVATE
